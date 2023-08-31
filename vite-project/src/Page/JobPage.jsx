@@ -1,20 +1,18 @@
 import Search from "../components/Search/Search";
 import style from "./style.module.scss";
 import { Link } from "react-router-dom";
+import storage from "../components/storage/storage.json"
+import Pagination from "../components/Pagination/Pagination";
 
 function JobPage() {
-    const arr = [{ header: "Менеджер-дизайнер", salary: "з/п от 70000 rub", city: "Новый Уренгой", time: "Полный рабочий день" },
-    { header: "Ведущий графический дизайнер НЕ УДАЛЕННО", salary: "з/п от 80000 rub", city: "Москва", time: "Полный рабочий день" },
-    { header: "Работник декорации, дизайнер (ТЦ Амбар)", salary: "з/п 29000 rub", city: "Самара", time: "Сменный график работы" },
-    { header: "Менеджер-дизайнер", salary: "з/п 55000 - 95000 rub", city: "Тюмень", time: "Полный рабочий день" }]
 
     return (
         <>
             <Search />
 
             <div className={style.wrapper}>
-                {arr.map((el, index) =>
-                    <Link to={`/vacancy/${el.header}`} key={index} >
+                {storage.map((el, index) =>
+                    <Link to={`/vacancy/${el.id}`} key={index} >
 
                         <div className={style.item}>
 
@@ -33,11 +31,11 @@ function JobPage() {
 
                         </div>
 
-
                     </Link>
-
                 )}
             </div >
+
+            <Pagination />
         </>
     )
 }
