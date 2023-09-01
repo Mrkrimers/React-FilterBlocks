@@ -13,13 +13,6 @@ function JobPage() {
     const LInd = currentPage * size;
     const FInd = LInd - size;
     const curCart = storage.slice(FInd, LInd)
-    console.log(curCart);
-
-    // const change = (event, value) => {
-    //     console.log(value);
-    //     setCurrentPage(value);
-    // }
-
 
     return (
         <>
